@@ -1,7 +1,7 @@
 <%= error_messages_for @format %>
 
 <%= form_for(@format, :html => { :id => 'format-form' }) do |f| %>
-  <div class=splitcontentleft>
+  <div class=splitcontentleft size="68%">
   <div class='box tabular'>
     <p>
     <%= f.label :name, l("release_notes.formats.attributes.name") %>
@@ -10,7 +10,7 @@
     <% %w(header start each_issue end).each do |attr| %>
       <p>
       <%= f.label attr, l("release_notes.formats.attributes.#{attr}") %>
-      <%= f.text_area attr, :cols => 40, :rows => 2 %>
+      <%= f.text_area attr, :cols => 200, :rows => 20 %>
       <em class='info'>
         <%= l("release_notes.formats.explain.#{attr}") %>
       </em>
@@ -23,7 +23,7 @@
     'format-form', 'relnotes' %>
   </div>
 
-  <div class=splitcontentright>
+  <div class=splitcontentright size="30%">
     <div class=box>
       <p><%= l('release_notes.formats.subs.intro') %></p>
 
