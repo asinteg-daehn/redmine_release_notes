@@ -110,6 +110,7 @@ class ReleaseNotesGenerator
       "name" => version.name,
       "date" => format_date(version.effective_date),
       "description" => version.description,
+      "project" => version.project.name,
       "id" => version.id
     }
     add_custom_values(version, values)

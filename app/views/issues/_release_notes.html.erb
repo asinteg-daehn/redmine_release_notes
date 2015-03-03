@@ -13,9 +13,9 @@
   <strong><%= t('release_notes.title_plural') %></strong>
   </p>
   <% if release_note.text %>
-    <div class="wiki">
-    <p><%= h(release_note.text).gsub(/(\r\n|\r|\n)/, "<br>").html_safe %></p>
-    </div>
+
+    <p><%= textilizable(release_note.text) %></p>
+
   <% end %>
 </div>
 
@@ -40,4 +40,7 @@
       <%= f.submit t(:button_submit), :onclick => "$('#release_notes>.flash.error').remove(); return true;" %>
       <%= link_to_function t(:button_cancel), 'toggle_release_notes()' %>
   </div>
+
+  <%= wikitoolbar_for 'release_note_text' %>
+
 <% end %>

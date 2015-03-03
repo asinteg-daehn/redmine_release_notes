@@ -1,7 +1,7 @@
 <% html_title l('release_notes.generate_title', :version => @version.name) %>
 
 <%= render :partial => 'warnings',
-  :locals => { :version => @version, :project => @project } %>
+	:locals => { :version => @version, :project => @project, :format => @format } %>
 
 <div style="width:100%;">
 <h2><%= l('release_notes.generate_title', :version => @version.name) %></h2>
@@ -14,4 +14,10 @@
 
 <%= render_other_formats(@formats) %>
 
-<%= render :partial => 'generated_release_notes' %>
+<!-- 
+<%= render :partial => 'generated_release_notes', :raw => "true", :release_notes_format => params[:release_notes_format] %>
+-->
+
+
+<iframe id="iframe" src="<%= url_for :raw => "true", :release_notes_format => params[:release_notes_format] %>" frameborder="0" scrolling="auto" style="width: 80%; height: 600px; border: 1px solid grey; border-radius: 3px;"> </iframe>
+

@@ -87,7 +87,9 @@ class ReleaseNotesController < ApplicationController
 
     @content = ReleaseNotesGenerator.new(@version, @format).generate
 
-    if params[:raw]
+    if params[:raw] and params[:release_notes_format] == "HTML"
+      render :text => @content, :content_type => 'text/html'
+    elsif params[:raw]
       render :text => @content, :content_type => 'text/plain'
     elsif params[:download]
       send_data @content, :content_type => 'text/plain',
